@@ -1,0 +1,83 @@
+% Technical Drawing Recreation in MATLAB
+clear; clc; close all;
+
+% Create figure
+figure('Position', [100, 100, 800, 400]);
+hold on;
+axis equal;
+grid on;
+
+% Define coordinates for the main rectangular structure
+% Main horizontal beam/structure
+main_x = [0, 10, 10, 0, 0];  % Assuming length of 10 units
+main_y = [0, 0, 1, 1, 0];    % Height of 1 unit
+
+% Left vertical element
+left_x = [0, 0, -1, -1, 0];
+left_y = [1, 3, 3, 1, 1];    % Height extending upward
+
+% Top horizontal element
+top_x = [-1, 2, 2, -1, -1];
+top_y = [3, 3, 4, 4, 3];
+
+% Right vertical element  
+right_x = [10, 10, 11, 11, 10];
+right_y = [0, 2, 2, 0, 0];
+
+% Plot the main structure
+plot(main_x, main_y, 'k-', 'LineWidth', 2);
+plot(left_x, left_y, 'k-', 'LineWidth', 2);
+plot(top_x, top_y, 'k-', 'LineWidth', 2);
+plot(right_x, right_y, 'k-', 'LineWidth', 2);
+
+% Add dimension lines and annotations
+% Horizontal dimensions
+plot([0, 2], [-0.3, -0.3], 'k--', 'LineWidth', 0.5);
+plot([0, 0], [-0.2, -0.4], 'k-', 'LineWidth', 0.5);
+plot([2, 2], [-0.2, -0.4], 'k-', 'LineWidth', 0.5);
+text(1, -0.5, '4.2', 'HorizontalAlignment', 'center', 'FontSize', 10);
+
+plot([2, 10], [-0.7, -0.7], 'k--', 'LineWidth', 0.5);
+plot([2, 2], [-0.6, -0.8], 'k-', 'LineWidth', 0.5);
+plot([10, 10], [-0.6, -0.8], 'k-', 'LineWidth', 0.5);
+text(6, -0.9, '9.8', 'HorizontalAlignment', 'center', 'FontSize', 10);
+
+plot([10, 11], [-1.1, -1.1], 'k--', 'LineWidth', 0.5);
+plot([10, 10], [-1.0, -1.2], 'k-', 'LineWidth', 0.5);
+plot([11, 11], [-1.0, -1.2], 'k-', 'LineWidth', 0.5);
+text(10.5, -1.3, '5.4', 'HorizontalAlignment', 'center', 'FontSize', 10);
+
+% Vertical dimensions
+plot([-1.5, -1.5], [1, 3], 'k--', 'LineWidth', 0.5);
+plot([-1.4, -1.6], [1, 1], 'k-', 'LineWidth', 0.5);
+plot([-1.4, -1.6], [3, 3], 'k-', 'LineWidth', 0.5);
+text(-1.8, 2, '5.8', 'HorizontalAlignment', 'center', 'FontSize', 10, 'Rotation', 90);
+
+plot([11.5, 11.5], [0, 2], 'k--', 'LineWidth', 0.5);
+plot([11.4, 11.6], [0, 0], 'k-', 'LineWidth', 0.5);
+plot([11.4, 11.6], [2, 2], 'k-', 'LineWidth', 0.5);
+text(11.8, 1, '5', 'HorizontalAlignment', 'center', 'FontSize', 10, 'Rotation', 90);
+
+plot([2.5, 2.5], [3, 4], 'k--', 'LineWidth', 0.5);
+plot([2.4, 2.6], [3, 3], 'k-', 'LineWidth', 0.5);
+plot([2.4, 2.6], [4, 4], 'k-', 'LineWidth', 0.5);
+text(2.8, 3.5, '4', 'HorizontalAlignment', 'center', 'FontSize', 10, 'Rotation', 90);
+
+% Top dimension
+plot([-1, 2], [4.3, 4.3], 'k--', 'LineWidth', 0.5);
+plot([-1, -1], [4.2, 4.4], 'k-', 'LineWidth', 0.5);
+plot([2, 2], [4.2, 4.4], 'k-', 'LineWidth', 0.5);
+text(0.5, 4.5, '7.2', 'HorizontalAlignment', 'center', 'FontSize', 10);
+
+% Set axis properties
+xlim([-3, 13]);
+ylim([-2, 5]);
+xlabel('Distance (units)');
+ylabel('Distance (units)');
+title('Technical Drawing - MATLAB Recreation');
+
+% Remove axis for cleaner technical drawing look
+% Uncomment the next line if you want to hide axes
+% axis off;
+
+hold off;
